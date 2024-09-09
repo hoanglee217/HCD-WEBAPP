@@ -1,0 +1,77 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
+    ],
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "only-warn",
+        "import"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "args": "none",
+                "ignoreRestSiblings": false
+            }
+        ],
+        "quotes": [
+            "warn",
+            "single"
+        ],
+        "jsx-quotes": [
+            "warn",
+            "prefer-single"
+        ],
+        "semi": [
+            "warn",
+            "always"
+        ],
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "no-multiple-empty-lines": [
+            "warn",
+            {
+                "max": 1
+            }
+        ],
+        "indent": [
+            "warn",
+            4
+        ],
+        // turn on errors for missing imports
+        "import/no-unresolved": "off",
+        "import/no-named-as-default-member": "off",
+        "import/order": [
+            "warn"
+        ],
+        // react
+        "react/self-closing-comp": "warn",
+        "react/jsx-curly-brace-presence": ["warn", { "props": "never", "children": "never" }]
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "hcd-web-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:management": "yarn workspace @esg/app-management dev",
+    "preview:management": "yarn workspace @esg/app-management preview",
+    "build:management": "yarn workspace @esg/app-management build",
+    "dev:identity": "yarn workspace @esg/app-identity dev",
+    "preview:identity": "yarn workspace @esg/app-identity preview",
+    "build:identity": "yarn workspace @esg/app-identity build",
+    "lint": "eslint --ext .ts,.tsx ."
+  },
+  "keywords": [],
+  "dependencies": {
+    "react-i18next": "^14.0.0"
+  },
+  "workspaces": [
+    "packages/**/*",
+    "apps/**/*"
+  ],
+  "devDependencies": {
+    "@types/react-html-parser": "^2.0.6",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1"
+  }
+}
