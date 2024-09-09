@@ -1,0 +1,15 @@
+{
+  "name": "@hcd/ui",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "type": "module",
+  "dependencies": {
+    "@tanstack/react-query": "5.15.0",
+    "@types/qs": "^6.9.14",
+    "i18next": "^23.7.13",
+    "qs": "^6.12.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "recoil": "0.7.7"
+  }
+}

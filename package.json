@@ -2,18 +2,26 @@
   "name": "hcd-web-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev:management": "yarn workspace @esg/app-management dev",
-    "preview:management": "yarn workspace @esg/app-management preview",
-    "build:management": "yarn workspace @esg/app-management build",
-    "dev:identity": "yarn workspace @esg/app-identity dev",
-    "preview:identity": "yarn workspace @esg/app-identity preview",
-    "build:identity": "yarn workspace @esg/app-identity build",
+    "dev:management": "yarn workspace @hcd/management dev",
+    "preview:management": "yarn workspace @hcd/management preview",
+    "build:management": "yarn workspace @hcd/management build",
+    "dev:identity": "yarn workspace @hcd/identity dev",
+    "preview:identity": "yarn workspace @hcd/identity preview",
+    "build:identity": "yarn workspace @hcd/identity build",
+    "dev:view": "yarn workspace @hcd/view dev",
+    "preview:view": "yarn workspace @hcd/view preview",
+    "build:view": "yarn workspace @hcd/view build",
     "lint": "eslint --ext .ts,.tsx ."
   },
   "keywords": [],
   "dependencies": {
-    "react-i18next": "^14.0.0"
+    "@ckeditor/ckeditor5-build-classic": "^43.1.0",
+    "@ckeditor/ckeditor5-react": "^9.1.0",
+    "ckeditor5": "^43.1.0",
+    "react-i18next": "^14.0.0",
+    "react-router": "^6.26.1"
   },
   "workspaces": [
     "packages/**/*",
@@ -22,6 +30,7 @@
   "devDependencies": {
     "@types/react-html-parser": "^2.0.6",
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1"
+    "eslint-plugin-import": "^2.29.1",
+    "vite": "^5.4.3"
   }
 }

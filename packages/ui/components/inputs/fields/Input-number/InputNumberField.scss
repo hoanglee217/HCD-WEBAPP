@@ -1,0 +1,29 @@
+.input-number-field-custom {
+    display: flex;
+    .input-custom {
+        width: 100%;
+        border-radius: 0;
+
+        & input {
+            text-align: center;
+        }
+    }
+
+    .button-custom {
+        height: 44px;
+
+        &.left {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &.right {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &.error {
+            border-color: #ff4d4f;
+        }
+    }
+}

@@ -1,19 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { ThemeProvider, AppConfig, ModalGlobal } from "@hcd/ui";
+import { Initializer } from "./app";
+import { Router } from "./pages/Router";
+import { defaultLocale } from "./locales";
+import Header from "./pages/layouts/Header";
+import Footer from "./pages/layouts/Footer";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const getRootElement = () => document.getElementById("root")!;
+let reactRoot: ReactDOM.Root | null = null;
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const renderApp = () => {
+  const root = getRootElement();
+  const app = (
+    <AppConfig i18nResources={[defaultLocale]}>
+      <ThemeProvider>
+        <Header />
+        <Initializer>
+          <ModalGlobal />
+          <Router />
+        </Initializer>
+        <Footer />
+      </ThemeProvider>
+    </AppConfig>
+  );
+
+  if (reactRoot == null) {
+    reactRoot = ReactDOM.createRoot(root);
+    reactRoot.render(app);
+  } else {
+    reactRoot.render(app);
+  }
+};
+
+export const startApp = () => {
+  renderApp();
+};

@@ -1,0 +1,28 @@
+.custom-slider {
+  .ant-slider {
+    height: 16px;
+  }
+
+  .ant-slider-step,
+  .ant-slider-rail,
+  .ant-slider-track {
+    height: 8px;
+    border-radius: 10px;
+  }
+
+  .ant-slider-dot {
+    height: 8px;
+    border: none;
+    border-radius: 0;
+    width: 1px;
+    top: 0px;
+  }
+
+  .ant-slider-handle {
+    top: 1.5px;
+  }
+
+  .ant-slider-mark {
+    top: calc(var(--ant-slider-rail-size) * 3 + 10px);
+  }
+}
