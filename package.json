@@ -1,36 +1,60 @@
 {
-  "name": "hcd-web-app",
+  "homepage": "https://zahramirzaei.github.io",
+  "name": "admin-panel",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
-  "scripts": {
-    "dev:management": "yarn workspace @hcd/management dev",
-    "preview:management": "yarn workspace @hcd/management preview",
-    "build:management": "yarn workspace @hcd/management build",
-    "dev:identity": "yarn workspace @hcd/identity dev",
-    "preview:identity": "yarn workspace @hcd/identity preview",
-    "build:identity": "yarn workspace @hcd/identity build",
-    "dev:view": "yarn workspace @hcd/view dev",
-    "preview:view": "yarn workspace @hcd/view preview",
-    "build:view": "yarn workspace @hcd/view build",
-    "lint": "eslint --ext .ts,.tsx ."
-  },
-  "keywords": [],
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^43.1.0",
-    "@ckeditor/ckeditor5-react": "^9.1.0",
-    "ckeditor5": "^43.1.0",
-    "react-i18next": "^14.0.0",
-    "react-router": "^6.26.1"
+    "@faker-js/faker": "^6.1.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.3.3",
+    "chart.js": "^3.7.1",
+    "i18next": "^21.6.14",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.1",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.15.7",
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "5.0.0",
+    "sass": "^1.49.9",
+    "serve": "^13.0.2",
+    "typescript": "^4.4.2",
+    "usehooks-ts": "^2.4.2",
+    "web-vitals": "^2.1.0"
   },
-  "workspaces": [
-    "packages/**/*",
-    "apps/**/*"
-  ],
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "@types/react-html-parser": "^2.0.6",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "vite": "^5.4.3"
+    "@iconify/react": "^3.1.4",
+    "gh-pages": "^3.2.3"
   }
 }
