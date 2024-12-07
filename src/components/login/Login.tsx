@@ -1,71 +1,63 @@
-import React, { useContext, useRef } from "react";
-
-import LoginContext from "../../store/loginContext";
-import langContextObj from "../../store/langContext";
-import { images } from "../../constants";
 import Input from "../UI/input/Input";
 import Button from "../UI/button/Button";
-import { useTranslation } from "react-i18next";
 import classes from "./Login.module.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useAuth } from "../../store/AuthContext";
+import { FormEvent, useRef, useState } from "react";
+import { images, LoginRequest } from "../../constants";
 
 function LoginBox() {
-  const loginCtx = useContext(LoginContext);
-  const langCtx = useContext(langContextObj);
-  const userNameRef = useRef<HTMLInputElement>(null);
+  const [credentials, setCredentials] = useState<LoginRequest>({
+    email: "",
+    password: "",
+  });
   const errorMessageRef = useRef<HTMLSpanElement>(null);
+  const userNameRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { login } = useAuth();
 
-  let isValid = true;
-  function loginHandler(e: React.FormEvent) {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    isValid = userNameRef.current?.value === "admin";
-    if (userNameRef.current) {
-      if (isValid) {
-        loginCtx.toggleLogin();
-        navigate("/");
-      } else {
-        userNameRef.current.focus();
-        errorMessageRef.current?.setAttribute(
-          "style",
-          "display: inline-block;opacity: 1"
-        );
-      }
-    }
-  }
+    await login(credentials);
+    navigate("/");
+  };
 
   return (
-    <div
-      className={`${classes.container} ${
-        langCtx.lang === "fa" ? classes.rtl : ""
-      }`}
-    >
+    <div className={`${classes.container} `}>
       <div className={classes.loginBox}>
         <div className={classes.logo}>
-          <img src={images.logo} alt="digikala" />
+          <img className="m-3" src={images.logoDark} alt="logo" />
         </div>
         <h2 className={classes.title}>{t("loginPage")}</h2>
-        <form onSubmit={loginHandler}>
+        <form onSubmit={handleSubmit}>
           <Input
             ref={userNameRef}
-            type={"text"}
-            id={"userName"}
-            placeholder={"admin"}
+            classes="login-label"
+            type={"email"}
+            id={"email"}
+            placeholder={"email..."}
+            onChange={(e) =>
+              setCredentials({ ...credentials, email: e.target.value })
+            }
           />
           <span ref={errorMessageRef} className={classes.errorMessage}>
             {t("errorMessage")}
           </span>
           <Input
+            classes="login-label"
             type={"password"}
             id={"pass"}
-            value={"admin"}
-            readonly={true}
+            placeholder={"password..."}
+            onChange={(e) =>
+              setCredentials({ ...credentials, password: e.target.value })
+            }
           />
           <Button type="submit">{t("login")}</Button>
-          <Link className={classes.forgat_pass} to="/">
+          {/* <Link className={classes.forgat_pass} to="/">
             {t("forgetPass")}
-          </Link>
+          </Link> */}
           <div className={classes.checkbox}>
             <input type="checkbox" id="rememberMe" />
             <label htmlFor="rememberMe">{t("rememberMe")}</label>
@@ -75,7 +67,7 @@ function LoginBox() {
 
       <div className={classes.keyPic}>
         <img
-          src={require("../../assets/images/Revenue-cuate.svg").default}
+          src={require("../../assets/images/login.svg").default}
           alt="illustrator key"
         />
       </div>

@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useWindowSize } from "usehooks-ts";
 import { useTranslation } from "react-i18next";
 import { images } from "../../constants";
 import sidebarNav from "../../config/sidebarNav";
 import SidebarContext from "../../store/sidebarContext";
-import LoginContext from "../../store/loginContext";
 import { Icon } from "@iconify/react";
 import classes from "./Sidebar.module.scss";
+import { useAuth } from "../../store/AuthContext";
 
 function Sidebar() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { width } = useWindowSize();
   const location = useLocation();
   const sidebarCtx = useContext(SidebarContext);
-  const loginCtx = useContext(LoginContext);
   const { t } = useTranslation();
+  const { logout } = useAuth();
 
   function openSidebarHandler() {
     //for width>768(tablet size) if sidebar was open in width<768 was opened too.
@@ -23,10 +23,9 @@ function Sidebar() {
     if (width <= 768) document.body.classList.toggle("sidebar__open");
   }
 
-  function logoutHandler() {
-    openSidebarHandler();
-    loginCtx.toggleLogin();
-  }
+  const logoutHandler = async () => {
+    await logout();
+  };
 
   useEffect(() => {
     const curPath = window.location.pathname.split("/")[1];
@@ -42,7 +41,7 @@ function Sidebar() {
       }`}
     >
       <div className={classes.sidebar__logo}>
-        <img src={images.logo} alt="digikala" />
+        <img src={images.logoDark} height={100} alt="digikala" />
       </div>
       <div className={classes.sidebar__menu}>
         {sidebarNav.map((nav, index) => (
@@ -66,7 +65,7 @@ function Sidebar() {
 
       <div className={[classes.sidebar__menu, classes.logout].join("")}>
         <Link
-          to="/login"
+          to='/login'
           className={classes.sidebar__menu__item}
           onClick={logoutHandler}
         >

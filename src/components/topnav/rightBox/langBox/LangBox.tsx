@@ -21,8 +21,7 @@ function LangBox() {
     setShowLangBox((prev) => !prev);
   };
   useEffect(() => {
-    document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
-    document.documentElement.lang = lang === "en" ? "en" : "fa";
+    document.documentElement.lang = lang === "en" ? "en" : "vi";
   }, [lang]);
   const checkIfClickedOutside = useCallback(() => {
     // If the menu is open and the clicked target is not within the menu,
@@ -57,11 +56,11 @@ function LangBox() {
         </div>
         <div
           onClick={() => {
-            langCtx.toggleLanguage("fa");
+            langCtx.toggleLanguage("vi");
             showBoxHandler();
           }}
         >
-          Farsi (fa)
+          Vietnamese (vi)
         </div>
       </div>
     </div>

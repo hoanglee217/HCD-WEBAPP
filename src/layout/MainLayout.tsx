@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 
 import Sidebar from "../components/sidebar/Sidebar";
 import TopNav from "../components/topnav/TopNav";
-import sidebarNav from "../config/sidebarNav";
 
 import SidebarContext from "../store/sidebarContext";
 import classes from "./MainLayout.module.scss";

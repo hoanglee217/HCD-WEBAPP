@@ -1,20 +1,19 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { SidebarContextProvider } from "./store/sidebarContext";
 import { LangContextProvider } from "./store/langContext";
 import { ThemeContextProvider } from "./store/themeContext";
-import { LoginContextProvider } from "./store/loginContext";
+import { AuthProvider } from "./store/AuthContext";
 
 ReactDOM.render(
   <LangContextProvider>
-    <LoginContextProvider>
+    <AuthProvider>
       <ThemeContextProvider>
         <SidebarContextProvider>
           <App />
         </SidebarContextProvider>
       </ThemeContextProvider>
-    </LoginContextProvider>
+    </AuthProvider>
   </LangContextProvider>,
   document.getElementById("root")
 );

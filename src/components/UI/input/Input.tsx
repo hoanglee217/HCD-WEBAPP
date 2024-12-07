@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useRef, useState } from "react";
+import React, { ChangeEventHandler, useImperativeHandle, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import classes from "./Input.module.scss";
 
@@ -13,19 +13,14 @@ interface Props {
   ref?: HTMLInputElement;
   readonly?: boolean;
   autocomplete?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
-
 interface IImperativeHandler {
   focus: () => void;
-  value?: string;
 }
 const Input = React.forwardRef<IImperativeHandler, Props>((props, ref) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const [value, setValue] = useState(props.value || "");
 
-  function inputChangeHandler(e: React.FormEvent<HTMLInputElement>) {
-    setValue(e.currentTarget.value);
-  }
 
   function inputFocused() {
     inputRef.current?.focus();
@@ -35,7 +30,6 @@ const Input = React.forwardRef<IImperativeHandler, Props>((props, ref) => {
   useImperativeHandle(ref, () => {
     return {
       focus: inputFocused,
-      value: value,
     };
   });
   const { t } = useTranslation();
@@ -49,9 +43,9 @@ const Input = React.forwardRef<IImperativeHandler, Props>((props, ref) => {
         maxLength={props.maxLength}
         type={props.type}
         placeholder={props.placeholder}
-        value={value}
+        value={props.value}
         readOnly={props.readonly || false}
-        onChange={inputChangeHandler}
+        onChange={props.onChange}
         autoComplete={props.autocomplete || "off"}
       />
     </div>

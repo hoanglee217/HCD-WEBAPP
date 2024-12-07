@@ -16,9 +16,7 @@ function NotFound() {
       }`}
     >
       <h2
-        className={` notFound__title ${
-          langCtx.lang === "fa" ? "notFound__title_rtl" : "notFound__title_ltr"
-        }`}
+        className={` notFound__title `}
       >
         {t("notFoundMsg")}
       </h2>

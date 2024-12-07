@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useFetch from "../hook/useFetch";
 import CustomTable from "../components/tables/customTable/CustomTable";
 import { IProductsTable } from "../interfaces/Itable";
 import { products, productsHeader } from "../constants/tables";
 import LoadingSpinner from "../components/UI/loadingSpinner/LoadingSpinner";
-import Dropdown from "../components/UI/dropdown/Dropdown";
 
 const url =
   "https://admin-panel-79c71-default-rtdb.europe-west1.firebasedatabase.app/products.json";

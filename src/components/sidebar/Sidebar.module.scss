@@ -34,12 +34,14 @@
     // @include flex();
     // width: $sideBarLogoHeight;
     text-align: center;
-    padding: 0 12px 2rem;
+    padding: 12px 10px 2rem;
 
     img {
-      --size: 7.5rem;
+      --size: 138px;
+      // width: var(--size);
+      // height: var(--size);
       width: var(--size);
-      height: var(--size);
+      height: auto;
     }
 
     @include tablet {

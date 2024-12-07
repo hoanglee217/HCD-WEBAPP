@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../store/AuthContext";
 
-const ProtectedRoute = () => {
+const UnauthorizedRoute = () => {
   const { userId } = useAuth();
-  return userId ? <Outlet /> : <Navigate to="/login" replace={true}/>;
+  return !userId ? <Outlet /> : <Navigate to="/" replace={true}/>;
 };
 
-export default ProtectedRoute;
+export default UnauthorizedRoute;

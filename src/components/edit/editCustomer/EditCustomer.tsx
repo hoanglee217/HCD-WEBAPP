@@ -61,6 +61,7 @@ const EditCustomer: React.FC<{ customer?: IcustomersTable }> = (props) => {
               </div>
               <div className={classes.file_input_control}>
                 <input
+                  placeholder="Upload Image..."
                   className={classes.file_input}
                   type="file"
                   id="avatar"

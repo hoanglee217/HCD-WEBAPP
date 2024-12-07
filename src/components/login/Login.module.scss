@@ -31,6 +31,7 @@ html {
   .logo {
     margin-top: -2rem;
     width: 200px;
+    padding: 50px 0;
   }
 
   .title {
@@ -48,6 +49,13 @@ html {
     color: #424750;
   }
 
+  & .login-label label {
+    border-radius: 5px;
+    background-color: #f9f9fa !important;
+    color: #424750;
+    box-shadow: 4px 5px 5px -1px #0000003b;
+  }
+
   .errorMessage {
     position: relative;
     font-size: 14px;
@@ -63,10 +71,10 @@ html {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 1rem;
   }
 
   .forgat_pass {
-    margin: 1rem 0;
     display: inline-block;
     color: gray;
     font-size: 14px;
