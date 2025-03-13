@@ -1,0 +1,39 @@
+@use "../../scss/abstracts/" as *;
+
+html {
+  background-color: var(--bgc);
+}
+a {
+  text-decoration: none;
+  color: var(--linkColor);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  @include flex();
+  min-height: 100vh;
+  background-color: var(--bgc);
+  .keyPic {
+    width: 800px;
+    min-width: 600px;
+    order: 2;
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+  }
+  .isRegister{
+    order: -1;
+  }
+}
+.rtl {
+  font-family: iranyekan, "IRANSans", "Tahoma";
+  direction: rtl;
+  text-align: right;
+
+  label {
+    left: auto;
+    right: 10px;
+  }
+}

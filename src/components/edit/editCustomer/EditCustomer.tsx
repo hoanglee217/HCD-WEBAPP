@@ -6,7 +6,7 @@ import classes from "./EditCustomer.module.scss";
 import { IcustomersTable } from "../../../interfaces/Itable";
 import { Icon } from "@iconify/react";
 import Button from "../../UI/button/Button";
-import Input from "../../UI/input/Input";
+import Input from "../../UI/input/InputField";
 
 const EditCustomer: React.FC<{ customer?: IcustomersTable }> = (props) => {
   const { t } = useTranslation();
@@ -80,7 +80,7 @@ const EditCustomer: React.FC<{ customer?: IcustomersTable }> = (props) => {
                 e.preventDefault();
               }}
             >
-              <Input
+              {/* <Input
                 id="userName"
                 type="text"
                 placeholder={props.customer?.userName}
@@ -102,7 +102,7 @@ const EditCustomer: React.FC<{ customer?: IcustomersTable }> = (props) => {
                 type="text"
                 minLength={10}
                 placeholder={props.customer?.location}
-              />
+              /> */}
               <div className={classes.btn__wrapper}>
                 <Link to="/customers">
                   <Button type="submit">{t("upload")}</Button>

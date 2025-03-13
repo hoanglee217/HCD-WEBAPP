@@ -57,7 +57,7 @@ function Sidebar() {
               <Icon icon={nav.icon} />
             </div>
             <div className={classes.sidebar__menu__item__txt}>
-              {t(nav.section)}
+              {t(nav.text)}
             </div>
           </Link>
         ))}

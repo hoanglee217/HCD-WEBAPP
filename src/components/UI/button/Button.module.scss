@@ -22,6 +22,9 @@
     outline: none;
   }
 }
+.disable{
+  background: var(--disabledColor) !important;
+}
 
 .outline {
   background-color: transparent;

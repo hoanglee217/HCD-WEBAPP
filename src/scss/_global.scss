@@ -8,8 +8,10 @@ iframe {
 }
 html {
   /* ****Colors**** */
-  --primaryColor: #ee384e;
+  --primaryColor: #58bb5f;
   --secondaryColor: #3c4b6d;
+  --disabledColor: #b9b9b9;
+  --linkColor: #1677ff;
   //light theme
   --bgc: #f2f2f2;
   --card-bgc: #f9f9fa;
@@ -24,6 +26,12 @@ html {
 
   /* ****Font family**** */
   --fontFamily: "Poppins", "Roboto", sans-serif;
+
+  //table
+  --table-even-row-bg: #fff;
+  --table-odd-row-bg: #ebebeb;
+
+  --drop-shadow: 0 0 15px 6px #00000014;
 }
 html[theme="dark"] {
   //dark theme
@@ -38,6 +46,11 @@ html[theme="dark"] {
   --pending-textColor: #a5e9ff;
   --rejected-bgc: rgba(255, 56, 56, 0.3);
   --rejected-textColor: #f2bebe;
+
+  //table
+  --table-even-row-bg: #293037;
+  --table-odd-row-bg: #1d2529;
+
 }
 
 html[dir="rtl"] {
@@ -45,9 +58,9 @@ html[dir="rtl"] {
 }
 
 //reset
-*,
-*::before,
-*::after {
+*:not(.jodit-wysiwyg),
+*::before:not(.jodit-wysiwyg),
+*::after:not(.jodit-wysiwyg) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -58,14 +71,9 @@ img {
   width: 100%;
 }
 
-ol,
-ul {
+ol:not(.jodit-wysiwyg ol),
+ul:not(.jodit-wysiwyg ul) {
   list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: unset;
 }
 
 input,

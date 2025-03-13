@@ -1,0 +1,110 @@
+@use "../../../scss/abstracts/index" as *;
+
+.button {
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+/* Solid Variants */
+.primary {
+  background: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+
+  &:hover {
+    background: #40a9ff;
+    border-color: #40a9ff;
+  }
+}
+
+.danger {
+  background: #ff4d4f;
+  border-color: #ff4d4f;
+  color: white;
+
+  &:hover {
+    background: #ff7875;
+    border-color: #ff7875;
+  }
+}
+
+.success {
+  background: #52c41a;
+  border-color: #52c41a;
+  color: white;
+
+  &:hover {
+    background: #73d13d;
+    border-color: #73d13d;
+  }
+}
+
+/* Outline Variants */
+.outline-primary {
+  background: transparent;
+  border: 1px solid #1890ff;
+  color: #1890ff;
+
+  &:hover {
+    color: #fff !important;
+    background: #1890ff !important;
+  }
+}
+
+.outline-danger {
+  background: transparent;
+  border: 1px solid #ff4d4f;
+  color: #ff4d4f;
+
+  &:hover {
+    color: #fff !important;
+    background: #ff4d4f !important;
+  }
+}
+
+.outline-success {
+  background: transparent;
+  border: 1px solid #52c41a;
+  color: #52c41a;
+
+  &:hover {
+    color: #fff !important;
+    background: #52c41a !important;
+  }
+}
+
+/* Ghost Variants */
+.ghost-primary {
+  background: transparent;
+  border: none;
+  color: #1890ff;
+
+  &:hover {
+    color: #fff !important;
+    background: #1890ff !important;
+  }
+}
+
+.ghost-danger {
+  background: transparent;
+  border: none;
+  color: #ff4d4f;
+
+  &:hover {
+    color: #fff !important;
+    background: #ff4d4f !important;
+  }
+}
+
+.ghost-success {
+  background: transparent;
+  border: none;
+  color: #52c41a;
+
+  &:hover {
+    color: #fff !important;
+    background: #52c41a !important;
+  }
+}

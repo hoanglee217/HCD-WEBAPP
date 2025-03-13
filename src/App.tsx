@@ -1,22 +1,26 @@
+import "react-toastify/dist/ReactToastify.css";
+import "./scss/App.scss";
+
 import React, { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layout/MainLayout";
-import LoadingSpinner from "./components/UI/loadingSpinner/LoadingSpinner";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./scss/App.scss";
 import ProtectedRoute from "./route/ProtectedRoute";
 import UnauthorizedRoute from "./route/UnauthorizedRoute";
+import AuthLayout from "./components/authentication/AuthLayout";
+import LoadingSpinner from "./components/UI/loadingSpinner/LoadingSpinner";
+// import CategoryEdit from "./pages/category/CategoryEdit";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
-const Customers = React.lazy(() => import("./pages/Customers"));
-const CustomerEdit = React.lazy(() => import("./pages/CustomerEdit"));
-const Products = React.lazy(() => import("./pages/Products"));
-const ProductEdit = React.lazy(() => import("./pages/ProductEdit"));
+const Categories = React.lazy(() => import("./pages/category/Categories"));
+const Blogs = React.lazy(() => import("./pages/blog/Blogs"));
+const BlogAdd = React.lazy(() => import("./pages/blog/BlogAdd"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const BlankPage = React.lazy(() => import("./pages/BlankPage"));
 const Login = React.lazy(() => import("./pages/Login"));
+const ForgetPassword = React.lazy(() => import("./pages/ForgetPassword"));
+const Register = React.lazy(() => import("./pages/Register"));
 
 function App() {
   return (
@@ -27,21 +31,26 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<Dashboard />} />
-                <Route path="/customers" element={<Customers />} />
+                <Route path="/categories" element={<Categories />} />
+                <Route path="/blogs" element={<Blogs />} />
                 <Route
-                  path="/customers/:customerId"
-                  element={<CustomerEdit />}
+                  path="/add-blog"
+                  element={<BlogAdd />}
                 />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:productId" element={<ProductEdit />} />
-                <Route path="/orders" element={<BlankPage />} />
-                <Route path="/analytics" element={<BlankPage />} />
-                <Route path="/discount" element={<BlankPage />} />
-                <Route path="/inventory" element={<BlankPage />} />
+                <Route path="/comment" element={<BlankPage />} />
+                <Route path="/tags" element={<BlankPage />} />
               </Route>
             </Route>
             <Route element={<UnauthorizedRoute />}>
-              <Route path="/login" element={<Login />} />
+              <Route element={<AuthLayout type="login" />}>
+                <Route path="/login" element={<Login />} />
+              </Route>
+              <Route element={<AuthLayout type="forget-password" />}>
+                <Route path="/forget-password" element={<ForgetPassword />} />
+              </Route>
+              <Route element={<AuthLayout type="register" />}>
+                <Route path="/register" element={<Register />} />
+              </Route>
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

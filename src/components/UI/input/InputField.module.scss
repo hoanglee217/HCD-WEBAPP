@@ -1,0 +1,64 @@
+@use "../../../scss/abstracts/" as *;
+
+.form__control {
+  @include flex();
+  position: relative;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  // border: 1px solid red;
+
+  label {
+    position: absolute;
+    top: -30%;
+    left: 10px;
+    background-color: var(--card-bgc);
+    padding: 0.3rem;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  input,
+  .inputPass {
+    padding: 1rem 1.5rem;
+    border: 1px solid gainsboro;
+    outline: gray;
+    background-color: var(--card-bgc);
+    border-radius: $smallBorderRadius;
+    min-width: 300px;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.05);
+    z-index: 0;
+    @media screen and (max-width: 300px) {
+      min-width: auto;
+    }
+  }
+  input:hover,
+  .inputPass:hover{
+    background-color: var(--card-bgc);
+    color: var(--text-color);
+  }
+  input::placeholder{
+    color: var(--text-color);
+  }
+  .inputPass > input {
+    box-shadow: none !important;
+  }
+  input.errorInput,
+  .inputPass.errorInput {
+    border: 2px solid red !important;
+    background: var(--card-bgc) !important;
+    color: red;
+  }
+  .errorMessage {
+    font-size: 12px;
+    color: red;
+    font-weight: 300;
+    margin: 0 10px;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

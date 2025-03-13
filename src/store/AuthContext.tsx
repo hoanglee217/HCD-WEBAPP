@@ -32,7 +32,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (props: LoginRequest) => {
     const response = await LoginHandler({
       email: props.email,
-      password: props.password
+      password: props.password,
+      rememberMe: props.rememberMe
     });
     toast.success("Login successfully!!");
 

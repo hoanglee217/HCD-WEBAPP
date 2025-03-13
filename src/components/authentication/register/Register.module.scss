@@ -1,0 +1,52 @@
+@use "../../../scss/abstracts/" as *;
+
+.registerBox {
+  @include flex();
+  flex-direction: column;
+  width: 450px;
+  padding: 0 2rem 4rem;
+  background-color: #f9f9fa;
+  color: #424750;
+  border-radius: $mediumBorderRadius;
+  box-shadow: $mainBoxShadow;
+  text-align: center;
+
+  .logo {
+    margin-top: -2rem;
+    width: 200px;
+    padding: 50px 0;
+  }
+
+  .title {
+    font-size: $fontSizeHeadlineMedium;
+    line-height: 50px;
+    letter-spacing: 0;
+    font-weight: 400;
+    margin: -2rem 0 2rem;
+  }
+
+  & input,
+  & label {
+    background-color: #f9f9fa !important;
+    color: #424750;
+  }
+
+  form{
+    width: 100%;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .changeMethod{
+    font-size: 13px;
+    a{
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,5 +1,4 @@
-import React from "react";
-import LoginBox from "../components/login/Login";
+import LoginBox from "../components/authentication/login/Login";
 
 function Login() {
   return (

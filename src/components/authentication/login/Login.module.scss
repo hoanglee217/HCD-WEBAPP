@@ -1,0 +1,84 @@
+@use "../../../scss/abstracts/" as *;
+
+.loginBox {
+  @include flex();
+  flex-direction: column;
+  width: 450px;
+  padding: 0 2rem 4rem;
+  background-color: var(--card-bgc);
+  color: #424750;
+  border-radius: $mediumBorderRadius;
+  box-shadow: $mainBoxShadow;
+  text-align: center;
+
+  .logo {
+    margin-top: -2rem;
+    width: 200px;
+    padding: 50px 0;
+  }
+
+  .title {
+    font-size: $fontSizeHeadlineMedium;
+    line-height: 50px;
+    letter-spacing: 0;
+    font-weight: 400;
+    margin: -2rem 0 2rem;
+  }
+
+  & input,
+  & label {
+    background-color: var(--card-bgc);
+    color: var(--text-color);
+  }
+
+  form{
+    width: 100%;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .subProperty {
+    @include flex();
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+
+    .checkbox {
+      @include flex();
+      justify-content: space-between;
+      align-items: center;
+
+      input {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        padding: 6px;
+        border-radius: 8px;
+      }
+
+      label {
+        margin-left: 5px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+
+    .forgat_pass {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+
+  .changeMethod {
+    font-size: 13px;
+    a {
+      margin-left: 5px;
+    }
+  }
+}

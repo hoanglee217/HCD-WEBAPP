@@ -6,7 +6,8 @@ import { IProductsTable as Props } from "../../../interfaces/Itable";
 import classes from "./EditProduct.module.scss";
 import { Icon } from "@iconify/react";
 import Button from "../../UI/button/Button";
-import Input from "../../UI/input/Input";
+import InputField from "../../UI/input/InputField";
+
 const EditProduct: React.FC<{ product?: Props }> = (props) => {
   const { t } = useTranslation();
   return (
@@ -61,13 +62,13 @@ const EditProduct: React.FC<{ product?: Props }> = (props) => {
                 <Icon icon="akar-icons:cloud-upload" />
               </div>
               <div className={classes.file_input_control}>
-                <input
+                {/* <input
                   className={classes.file_input}
                   type="file"
                   id="pic"
                   name="pic"
                   accept="image/png, image/jpeg"
-                />
+                /> */}
               </div>
               <img
                 className={classes.pic}
@@ -80,26 +81,26 @@ const EditProduct: React.FC<{ product?: Props }> = (props) => {
                 e.preventDefault();
               }}
             >
-              <Input
+              {/* <InputField
                 id="proName"
                 type="text"
                 placeholder={props.product?.product}
               />
-              <Input
+              <InputField
                 id="category"
                 type="text"
                 placeholder={props.product?.category}
               />
-              <Input
+              <InputField
                 id="price"
                 type="text"
                 placeholder={props.product?.price}
               />
-              <Input
+              <InputField
                 id="inventoryCount"
                 type="number"
                 placeholder={props.product?.inventory.toString()}
-              />
+              /> */}
               <div className={classes.btn__wrapper}>
                 <Link to="/products">
                   <Button type="submit">{t("upload")}</Button>
