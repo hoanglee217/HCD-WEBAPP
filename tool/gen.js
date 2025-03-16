@@ -53,9 +53,9 @@ function generateFiles(fileName, tableName, location, apiPath, constantsPath) {
   rl.close();
 }
 
-rl.question("Chọn thư mục (1: Authentication, 2: Management): ", (folderChoice) => {
+rl.question("Chọn thư mục (1: Authentication, 2: Management, 3: System): ", (folderChoice) => {
   const basePath = path.join(__dirname, "..", "src");
-  const location = folderChoice === "1" ? "authentication" : folderChoice === "2" ? "management" : null;
+  const location = folderChoice === "1" ? "authentication" : folderChoice === "2" ? "management" : folderChoice === "3" ? "system" : null;
 
   if (!location) {
     console.log("❌ Lựa chọn không hợp lệ!");
