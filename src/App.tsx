@@ -15,12 +15,12 @@ import LoadingSpinner from "./components/UI/loadingSpinner/LoadingSpinner";
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Categories = React.lazy(() => import("./pages/category/Categories"));
 const Blogs = React.lazy(() => import("./pages/blog/Blogs"));
-const BlogAdd = React.lazy(() => import("./pages/blog/BlogAdd"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const BlankPage = React.lazy(() => import("./pages/BlankPage"));
 const Login = React.lazy(() => import("./pages/Login"));
 const ForgetPassword = React.lazy(() => import("./pages/ForgetPassword"));
 const Register = React.lazy(() => import("./pages/Register"));
+const BlogForm = React.lazy(() => import("./pages/blog/BlogForm"));
 
 function App() {
   return (
@@ -33,9 +33,10 @@ function App() {
                 <Route index element={<Dashboard />} />
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/blogs" element={<Blogs />} />
+                <Route path="/add-blog" element={<BlogForm />} />
                 <Route
-                  path="/add-blog"
-                  element={<BlogAdd />}
+                  path="/edit-blog/:id"
+                  element={<BlogForm isUpdate/>}
                 />
                 <Route path="/comment" element={<BlankPage />} />
                 <Route path="/tags" element={<BlankPage />} />

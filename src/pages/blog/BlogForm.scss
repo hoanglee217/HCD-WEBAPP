@@ -1,0 +1,13 @@
+@use "../../scss/abstracts/index" as *;
+
+.MainSideContent {
+  min-width: var(--sideWidth);
+  width: 100%;
+  .ant-form-item{
+    margin: 0;
+  }
+  .permalinkBox,
+  .editorBox {
+    font-size: 12px;
+  }
+}

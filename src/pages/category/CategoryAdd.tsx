@@ -1,11 +1,10 @@
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
-import { Button, Form, Input, Tree, TreeDataNode, TreeProps } from "antd";
-import GetAllCategoryHandler from "../../components/api/management/category/GetAllCategoryHandler";
-import { GetAllCategoryResponseItem } from "../../constants/management/category/GetAllCategoryRequest";
+import { useState } from "react";
+import { Button, Form, Input, TreeProps } from "antd";
 import { categoryEnums } from "../../constants/enums/categoryEnums";
 import CreateCategoryHandler from "../../components/api/management/category/CreateCategoryHandler";
+import TreeCheckCategory from "../../components/UI/Tree/TreeCheckCategory";
 
 interface ICategoryProps {
   onSuccess: () => void;
@@ -14,38 +13,19 @@ interface ICategoryProps {
 function CategoryAdd(props: ICategoryProps) {
   const { t } = useTranslation();
   const [form] = Form.useForm();
-  const [categories, setCategories] = useState<GetAllCategoryResponseItem[]>();
   const [checkedKeys, setCheckedKeys] = useState<React.Key[]>([]);
-
-  const fetchData = async () => {
-    try {
-      const responseCategories = await GetAllCategoryHandler({
-        pageSize: 1000,
-      });
-      setCategories(responseCategories.items);
-    } catch (error) {
-      toast.error(`Error fetching categories: ${error}`);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleSubmit = async () => {
     try {
       const parentId = form.getFieldValue("parentId");
-      await CreateCategoryHandler(
-        {
-          name: form.getFieldValue("name"),
-          parentId: parentId?.length ? parentId : null,
-          categoryEnums:
-            parentId?.length !== 0 && parentId != null
-              ? form.getFieldValue("categoryEnums")
-              : categoryEnums.Primary,
-        },
-      );
+      await CreateCategoryHandler({
+        name: form.getFieldValue("name"),
+        parentId: parentId?.length ? parentId : null,
+        categoryEnums:
+          parentId?.length !== 0 && parentId != null
+            ? form.getFieldValue("categoryEnums")
+            : categoryEnums.Primary,
+      });
 
       toast.success(t("CATEGORY_CREATE_SUCCESS"));
       props.onSuccess();
@@ -92,21 +72,6 @@ function CategoryAdd(props: ICategoryProps) {
     }
   };
 
-  const buildCategoryTree = (
-    data: GetAllCategoryResponseItem[],
-  ): TreeDataNode[] => {
-    return data
-      .map((o) => {
-        const key = `${o.id}+${o.categoryEnums}`;
-        return {
-          key,
-          title: o.name,
-          disableCheckbox: o.categoryEnums === categoryEnums.Children_level_3,
-          children: buildCategoryTree(o.children),
-        };
-      });
-  };
-
   return (
     <section>
       <h2 className="title">{t("CATEGORY_CREATE")}</h2>
@@ -120,16 +85,12 @@ function CategoryAdd(props: ICategoryProps) {
         </Form.Item>
 
         <Form.Item label={t("CATEGORY_PARENT")} name="parentId">
-          {categories && (
-            <Tree
-              showLine
-              checkable
-              checkStrictly
-              treeData={buildCategoryTree(categories)}
-              onCheck={onCheck}
-              checkedKeys={checkedKeys}
-            />
-          )}
+          <TreeCheckCategory
+            onCheck={onCheck}
+            checkedKeys={checkedKeys}
+            checkStrictly
+            showLine
+          />
         </Form.Item>
 
         <Form.Item>

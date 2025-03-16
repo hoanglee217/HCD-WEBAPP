@@ -1,0 +1,60 @@
+@use "../../../scss/abstracts/index" as *;
+
+.ant-tabs {
+  width: 100%;
+  .ant-tabs-nav {
+    margin: 0;
+  }
+  .editor-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    position: relative;
+    border: 1px solid #ccced1;
+    .editor-toolbar {
+      .ck-toolbar {
+        border: none;
+      }
+    }
+    .editor-content {
+      border-top: 1px solid #ccced1;
+
+      .ck-content {
+        height: 480px;
+        margin: 10px 20px 30px;
+        border: 1px solid #f6f7f7;
+        box-shadow: var(--drop-shadow);
+      }
+    }
+    .ck-word-count {
+      color: #333;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      font-size: 13px;
+      padding: 8px;
+    }
+
+    .editor-word-count {
+      border-top: 1px solid var(--ck-color-base-border);
+    }
+  }
+
+  .html-textarea {
+    width: 100%;
+    height: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    border-radius: 0;
+  }
+
+  .word-count {
+    margin-top: auto;
+    padding: 0 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+    background: #f6f7f7;
+    font-size: 13px;
+  }
+}

@@ -1,26 +1,23 @@
 import Column from "antd/es/table/Column";
-import BlogEdit from "./BlogEdit";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import UseAction from "../../components/UI/UseAction";
-import { useDrawer } from "../../store/DrawerContext";
 import { TableCustom } from "../../components/UI/TableCustom";
 import { IPaginationMeta } from "../../interfaces/IPagination";
 import { useModal } from "../../store/ModalContext";
 import ModalDanger from "../../components/modal/ModalDanger";
 import { toast } from "react-toastify";
-import BlogAdd from "./BlogAdd";
 import { GetAllBlogResponseItem } from "../../constants/management/blog/GetAllBlogRequest";
 import GetAllBlogHandler from "../../components/api/management/blog/GetAllBlogHandler";
 import DeleteBlogHandler from "../../components/api/management/blog/DeleteBlogHandler";
 import ListTag from "../../components/UI/tag/ListTag";
 import { useNavigate } from "react-router-dom";
+import { blogStatusEnums } from "../../constants/enums/blogStatusEnums";
 
 function Blogs() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { openModal, closeModal } = useModal();
-  const { openDrawer, closeDrawer } = useDrawer();
   const [blogs, setBlogs] = useState<GetAllBlogResponseItem[]>([]);
   const [pagination, setPagination] = useState<IPaginationMeta>({
     page: 1,
@@ -83,7 +80,10 @@ function Blogs() {
           dataIndex="Title"
           key="Title"
           render={(_: any, record: GetAllBlogResponseItem) => (
-            <p>{record.title}</p>
+            <p>
+              {record.title}
+              {record.status === blogStatusEnums.Draft && <b> - Draft</b>}
+            </p>
           )}
         />
         <Column
@@ -135,24 +135,12 @@ function Blogs() {
               <UseAction
                 showEdit
                 showDelete
-                onEdit={() =>
-                  openDrawer(
-                    <BlogEdit
-                      blogId={record.id}
-                      onSuccess={() => {
-                        closeDrawer();
-                        fetchData(pagination);
-                      }}
-                    />
-                  )
-                }
+                onEdit={() => navigate(`/edit-blog/${record.id}`)}
                 onDelete={() =>
                   openModal(
                     <ModalDanger
-                      title={t("CATEGORY_DELETE_TITLE")}
-                      content={t("CATEGORY_DELETE_CONTENT", {
-                        title: record.title,
-                      })}
+                      title={t("BLOG_DELETE_TITLE")}
+                      content={t("BLOG_DELETE_CONTENT")}
                       onCancel={closeModal}
                       onConfirm={() => handlerDelete(record.id)}
                     />
