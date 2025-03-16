@@ -99,6 +99,11 @@ i18n
 
           //common
           PERMALINK: "Permalink",
+          DRAFT: "Draft",
+          PUBLISH: "Publish",
+          ADD_MEDIA: "Add media",
+          MOVE_TO_TRASH: "Move to trash",
+          STATUS: "Status",
           //end common
 
           //action
@@ -141,6 +146,7 @@ i18n
           CATEGORY_NAME_REQUIRED: "Please enter category name",
           CATEGORY_PARENT: "Parent Category",
           CATEGORY_PARENT_PLACEHOLDER: "Select Parent Category",
+          CATEGORY_ADD_NEW: "Add new category",
 
           CATEGORY_DELETE_TITLE: "Delete Category",
           CATEGORY_DELETE_CONTENT:
@@ -168,6 +174,10 @@ i18n
 
           ADD_BLOG_HEADER: "Add new post",
           ADD_BLOG_TITLE_PLACEHOLDER: "Add title",
+          ADD_BLOG_TAG_PLACEHOLDER: "Add Tag",
+
+          BLOG_DELETE_TITLE: "Delete post",
+          BLOG_DELETE_CONTENT: "Are you sure you want to delete this post?",
           //end blog
 
           //comment
@@ -178,7 +188,15 @@ i18n
           //tag
           TAG: "Tag",
           TAGS: "Tags",
+          TAG_ADD_NOTE: "Separate tags with commas",
           //end tag
+
+          //image
+          FEATURED_IMAGE: "Featured image",
+          FEATURED_IMAGE_DESCRIPTION: "Click the image to edit or update",
+          SET_FEATURED_IMAGE: "Set featured image",
+          REMOVE_FEATURED_IMAGE: "Remove featured image",
+          //end image
         },
       },
       vi: {
@@ -270,7 +288,12 @@ i18n
           notFoundMsg: "Không tìm thấy trang!",
 
           //common
-          PERMALINK: "Permalink",
+          PERMALINK: "Đường dẫn tĩnh",
+          DRAFT: "Nháp",
+          PUBLISH: "Xuất bản",
+          ADD_MEDIA: "Thêm đa phương tiện",
+          MOVE_TO_TRASH: "Chuyển vào thùng rác",
+          STATUS: "Trạng thái",
           //end common
 
           //action
@@ -313,6 +336,7 @@ i18n
           CATEGORY_NAME_REQUIRED: "Vui lòng nhập tên danh mục",
           CATEGORY_PARENT: "Danh mục cha:",
           CATEGORY_PARENT_PLACEHOLDER: "Chọn danh mục cha",
+          CATEGORY_ADD_NEW: "Thêm mới danh mục",
 
           CATEGORY_DELETE_TITLE: "Xoá Danh mục",
           CATEGORY_DELETE_CONTENT:
@@ -340,6 +364,10 @@ i18n
 
           ADD_BLOG_HEADER: "Thêm bài viết",
           ADD_BLOG_TITLE_PLACEHOLDER: "Thêm tiêu đề",
+          ADD_BLOG_TAG_PLACEHOLDER: "Thêm thẻ",
+
+          BLOG_DELETE_TITLE: "Xoá bài viết",
+          BLOG_DELETE_CONTENT: "Bạn chắc chắn muốn xoá bài viết này chứ?",
           //end blog
 
           //comment
@@ -350,7 +378,16 @@ i18n
           //tag
           TAG: "Thẻ",
           TAGS: "Thẻ",
+          TAG_ADD_NOTE: "Tách các thẻ bằng dấu phẩy",
           //end tag
+
+          //image
+          FEATURED_IMAGE: "Hình ảnh nổi bật",
+          FEATURED_IMAGE_DESCRIPTION:
+            "Nhấp vào hình ảnh để chỉnh sửa hoặc cập nhật",
+          SET_FEATURED_IMAGE: "Đặt hình ảnh nổi bật",
+          REMOVE_FEATURED_IMAGE: "Xóa hình ảnh nổi bật",
+          //end image
         },
       },
     },

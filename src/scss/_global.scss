@@ -32,6 +32,8 @@ html {
   --table-odd-row-bg: #ebebeb;
 
   --drop-shadow: 0 0 15px 6px #00000014;
+
+  --sideWidth: 280px;
 }
 html[theme="dark"] {
   //dark theme
@@ -58,9 +60,9 @@ html[dir="rtl"] {
 }
 
 //reset
-*:not(.jodit-wysiwyg),
-*::before:not(.jodit-wysiwyg),
-*::after:not(.jodit-wysiwyg) {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -291,4 +293,8 @@ html[dir="rtl"] {
 ::-webkit-scrollbar-thumb {
   background-color: var(--secondaryColor);
   border-radius: 100vw;
+}
+
+.jodit-react-container{
+  width: 100%;
 }

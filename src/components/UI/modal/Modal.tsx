@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import classes from "./Modal.module.scss";
 import Card from "../card/Card";
 import Button from "../button/Button";
+import CardCustom from "../card/CardCustom";
 
 interface IBackdrop {
   onConfirm: () => void;
@@ -27,7 +28,7 @@ const ModalOverlay: React.FC<IModal> = (props) => {
   const { t } = useTranslation();
 
   return (
-    <Card>
+    <CardCustom>
       <div className={classes.modal}>
         <header className={classes.header}>
           <h3>{props.title}</h3>
@@ -44,7 +45,7 @@ const ModalOverlay: React.FC<IModal> = (props) => {
           </button>
         </footer>
       </div>
-    </Card>
+    </CardCustom>
   );
 };
 

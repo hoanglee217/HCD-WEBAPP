@@ -1,0 +1,20 @@
+@use "../../scss/abstracts/index" as *;
+
+.textLink {
+  cursor: pointer;
+  color: var(--linkColor);
+}
+.textLink:hover {
+  text-decoration: underline;
+}
+.textDelete {
+  color: rgb(209, 0, 0);
+  cursor: pointer;
+}
+.textDelete:hover {
+  text-decoration: underline;
+  color: rgb(139, 0, 0);
+}
+.textDescription {
+  color: #646970;
+}

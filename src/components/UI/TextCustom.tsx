@@ -1,3 +1,4 @@
+import "./TextCustom.scss";
 import { Typography } from "antd";
 import { CSSProperties, ReactNode } from "react";
 
@@ -10,6 +11,10 @@ interface TextCustomProps {
   tooltip?: boolean;
   width?: number | string;
   styled?: CSSProperties | undefined;
+  onClick?: () => void;
+  isDeleteLink?: boolean;
+  isDescription?: boolean;
+  isLink?: boolean;
 }
 
 const TextCustom = ({
@@ -19,6 +24,10 @@ const TextCustom = ({
   tooltip = false,
   width = 200,
   styled,
+  onClick,
+  isDeleteLink,
+  isDescription,
+  isLink,
 }: TextCustomProps) => {
   const content = children ?? data ?? "";
 
@@ -28,8 +37,15 @@ const TextCustom = ({
       style={{
         maxWidth: width,
         display: "inline-block",
+        fontSize: 13,
         ...styled,
       }}
+      onClick={onClick}
+      className={` 
+        ${isDeleteLink ? "textDelete" : ""} 
+        ${isDescription ? "textDescription" : ""} 
+        ${isLink ? "textLink" : ""}
+      `}
     >
       {content}
     </Text>
