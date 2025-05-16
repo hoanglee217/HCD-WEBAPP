@@ -5,8 +5,8 @@
   flex-direction: column;
   width: 450px;
   padding: 0 2rem 4rem;
-  background-color: #f9f9fa;
-  color: #424750;
+  background-color: var(--bgc);
+  color: var(--text-color);
   border-radius: $mediumBorderRadius;
   box-shadow: $mainBoxShadow;
   text-align: center;

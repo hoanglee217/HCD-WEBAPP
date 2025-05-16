@@ -1,10 +1,11 @@
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
-import { Button, Form, Input, TreeProps } from "antd";
+import { Form, Input, TreeProps } from "antd";
 import { categoryEnums } from "../../constants/enums/categoryEnums";
 import CreateCategoryHandler from "../../components/api/management/category/CreateCategoryHandler";
 import TreeCheckCategory from "../../components/UI/Tree/TreeCheckCategory";
+import ButtonCustom from "../../components/UI/button/ButtonCustom";
 
 interface ICategoryProps {
   onSuccess: () => void;
@@ -94,9 +95,9 @@ function CategoryAdd(props: ICategoryProps) {
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <ButtonCustom type="primary" htmlType="submit">
             {t("SAVE")}
-          </Button>
+          </ButtonCustom>
         </Form.Item>
       </Form>
     </section>

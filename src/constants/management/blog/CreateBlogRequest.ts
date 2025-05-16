@@ -1,12 +1,14 @@
 import { blogStatusEnums } from "../../enums/blogStatusEnums";
-import { BlogCategoryDto, CategoryDto, UserDto } from "./GetAllBlogRequest";
+import { BlogCategoryDto, UserDto } from "./GetAllBlogRequest";
 
 export interface CreateBlogRequest {
-    title: string;
+    title?: string;
     content?: string;
     slug?: string;
-    status?: blogStatusEnums
-    categories?: CategoryDto[];
+    thumbnail?: string;
+    status?: blogStatusEnums;
+    categories?: string[];
+    tags?: string[];
 }
 export interface CreateBlogResponse{
     id: string;

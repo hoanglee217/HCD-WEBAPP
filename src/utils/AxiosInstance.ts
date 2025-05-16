@@ -3,9 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import RefreshTokenHandler from '../components/api/authentication/RefreshTokenHandler';
 import LogoutHandler from '../components/api/authentication/LogoutHandler';
-import useEnv from '../hook/useEnv';
 
-const apiUrl = useEnv.apiUrl;
 let AxiosInstance = axios.create();
 AxiosInstance.defaults.timeout = 1000 * 60;
 // Add interceptors in middle request or response

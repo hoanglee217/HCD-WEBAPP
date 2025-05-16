@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
 import "./Editor.scss";
-import TextArea from "antd/es/input/TextArea";
-import { Button, Form, FormInstance, Tabs } from "antd";
-import { CameraOutlined } from "@ant-design/icons";
-import { useTranslation } from "react-i18next";
-import CKEditorCustom from "./CKEditorCustom";
 import { DecoupledEditor } from "ckeditor5";
+import CKEditorCustom from "./CKEditorCustom";
+import TextArea from "antd/es/input/TextArea";
+import { useTranslation } from "react-i18next";
+import { Form, FormInstance, Tabs } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import ImageStorage from "../image-storage/ImageStorage";
 
 interface EditorProps {
   name: string;
@@ -18,6 +18,7 @@ function Editor({ name, form, initialData }: EditorProps) {
     initialData ? initialData : form.getFieldValue(name)
   );
   const [activeTab, setActiveTab] = useState("visual");
+  const editorRef = useRef<{ insertImage: (src: string) => void } | null>(null);
 
   useEffect(() => {
     setValue(initialData ? initialData : form.getFieldValue(name));
@@ -28,6 +29,14 @@ function Editor({ name, form, initialData }: EditorProps) {
     form.setFieldsValue({ [name]: value });
   };
 
+  const handleInsertImage = () => {
+    if (editorRef.current) {
+      editorRef.current.insertImage(
+        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      );
+    }
+  };
+
   return (
     <>
       <Tabs
@@ -35,21 +44,24 @@ function Editor({ name, form, initialData }: EditorProps) {
         onChange={setActiveTab}
         className="editor-tabs"
         tabBarExtraContent={
-          <Button icon={<CameraOutlined />} style={{ width: "max-content" }}>
-            {t("ADD_MEDIA")}
-          </Button>
+          <ImageStorage
+            type="button"
+            title={t("ADD_MEDIA")}
+            onSubmit={handleInsertImage}
+          />
         }
       >
         <Tabs.TabPane tab="Visual" key="visual">
           <div className="tab-content">
             <Form.Item name={name}>
-                <CKEditorCustom
-                  initialData={value}
-                  onBlur={(event: any, editor: DecoupledEditor) => {
-                    const value = editor.getData();
-                    handleChange(value);
-                  }}
-                />
+              <CKEditorCustom
+                initialData={value}
+                onBlur={(event: any, editor: DecoupledEditor) => {
+                  const value = editor.getData();
+                  handleChange(value);
+                }}
+                ref={editorRef}
+              />
             </Form.Item>
           </div>
         </Tabs.TabPane>

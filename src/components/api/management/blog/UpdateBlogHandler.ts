@@ -4,7 +4,7 @@ import AxiosInstance from "../../../../utils/AxiosInstance";
 
 async function UpdateBlogHandler(props: UpdateBlogRequest, id: string): Promise<UpdateBlogResponse> {
   const apiUrl = useEnv.apiUrl;
-  const response = await AxiosInstance.put(`${apiUrl}/api/categories/${id}`, props); 
+  const response = await AxiosInstance.put(`${apiUrl}/api/blogs/${id}`, props); 
   return response.data;
 }
 

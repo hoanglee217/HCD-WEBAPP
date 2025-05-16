@@ -1,68 +1,55 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-  useContext,
-} from "react";
-import { Icon } from "@iconify/react";
-import { useOnClickOutside } from "usehooks-ts";
+import React, { useEffect, useRef, useContext } from "react";
 import LangContext from "../../../../store/langContext";
-
 import classes from "./LangBox.module.scss";
+import { Dropdown, MenuProps } from "antd";
 
 function LangBox() {
-  const [showLangBox, setShowLangBox] = useState(false);
   const langBoxRef = useRef<HTMLDivElement>(null);
   const langCtx = useContext(LangContext);
   const lang = langCtx.lang;
 
-  const showBoxHandler = function toDo() {
-    setShowLangBox((prev) => !prev);
-  };
   useEffect(() => {
     document.documentElement.lang = lang === "en" ? "en" : "vi";
   }, [lang]);
-  const checkIfClickedOutside = useCallback(() => {
-    // If the menu is open and the clicked target is not within the menu,
-    // then close the menu
-    if (showLangBox && langBoxRef.current) {
-      setShowLangBox(false);
-    }
-  }, [showLangBox]);
 
-  //custom hook - when click outside of langbox, it will close.
-  useOnClickOutside(langBoxRef, checkIfClickedOutside);
-
-  return (
-    <div className={classes.lang} ref={langBoxRef}>
-      <div className={classes.lanBox} onClick={showBoxHandler}>
-        <Icon icon="clarity:language-line" width="20" />
-
-        <div className={classes.lang_slc}>{lang}</div>
-
-        <Icon icon="ep:arrow-down-bold" width="10" />
-      </div>
-      <div
-        className={`${classes.lang_menu} ${showLangBox ? classes.show : ""}`}
-      >
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      icon: "🇺🇸",
+      label: (
         <div
           onClick={() => {
             langCtx.toggleLanguage("en");
-            showBoxHandler();
           }}
         >
           English (en)
         </div>
+      ),
+    },
+    {
+      key: "2",
+      icon: "🇻🇳",
+      label: (
         <div
           onClick={() => {
             langCtx.toggleLanguage("vi");
-            showBoxHandler();
           }}
         >
           Vietnamese (vi)
         </div>
-      </div>
+      ),
+    },
+  ];
+
+  return (
+    <div className={classes.lang} ref={langBoxRef}>
+      <Dropdown.Button
+        menu={{ items }}
+        placement="bottom"
+        icon={lang === "en" ? "🇺🇸" : "🇻🇳"}
+      >
+        {lang === "en" ? "EN" : "VI"}
+      </Dropdown.Button>
     </div>
   );
 }

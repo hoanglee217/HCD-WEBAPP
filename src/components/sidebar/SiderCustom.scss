@@ -1,0 +1,71 @@
+@use "../../scss/abstracts/" as *;
+
+.logo {
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 16px;
+  &.logo_dark {
+    background: #021d3b;
+  }
+}
+.ant-layout-sider-trigger{
+  border-color: var(--border-color);
+  background: var(--bgc) !important;
+}
+.ant-menu-item {
+  background-color: transparent !important;
+  border-radius: 0;
+}
+.ant-menu-item-active {
+  background-color: rgb(0, 0, 0, 0.06) !important;
+}
+.ant-menu-item-selected {
+  position: relative;
+  a,
+  .anticon {
+    color: var(--primaryColor) !important;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 5px;
+    height: 60%;
+    background-color: var(--primaryColor);
+    border-radius: 20px;
+  }
+}
+
+.ant-menu-submenu-selected > .ant-menu-submenu-title {
+  a,
+  span,
+  .anticon {
+    color: var(--primaryColor) !important;
+  }
+}
+.ant-menu-submenu:has(.ant-menu-item-selected) > .ant-menu-submenu-title {
+  position: relative;
+  a,
+  i,
+  span,
+  .anticon {
+    color: var(--primaryColor) !important;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 5px;
+    height: 60%;
+    background-color: var(--primaryColor);
+    border-radius: 20px;
+  }
+  .ant-menu-item-selected::before {
+    content: none !important;
+  }
+}
+.ant-menu-vertical {
+  .ant-menu-item-selected::before {
+    content: none !important;
+  }
+}

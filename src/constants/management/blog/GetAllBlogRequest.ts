@@ -1,6 +1,6 @@
+import { categoryEnums } from "../../enums/categoryEnums";
 import { IPagination } from "../../../interfaces/IPagination";
 import { blogStatusEnums } from "../../enums/blogStatusEnums";
-import { categoryEnums } from "../../enums/categoryEnums";
 
 export interface GetAllBlogRequest {
 
@@ -16,6 +16,7 @@ export interface GetAllBlogResponseItem {
     rating: number;
     user: UserDto;
     blogCategories: BlogCategoryDto[];
+    blogTags: BlogTagDto[];
 }
 export type GetAllBlogResponse = IPagination<GetAllBlogResponseItem>;
 
@@ -30,6 +31,14 @@ export interface BlogCategoryDto{
 }
 export interface CategoryDto{
     id: string;
+    name?: string;
+    categoryEnums?: categoryEnums;
+}
+export interface BlogTagDto{
+    id: string;
+    tag: TagDto
+}
+export interface TagDto{
+    id: string;
     name: string;
-    categoryEnums: categoryEnums;
 }

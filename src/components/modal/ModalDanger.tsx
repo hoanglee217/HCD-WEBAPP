@@ -1,7 +1,8 @@
-import { Button, Card } from "antd";
+import { Card } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
-
+import ButtonCustom from "../UI/button/ButtonCustom";
+import "./ModalDanger.scss";
 interface ModalDangerProps {
   title: string;
   content?: string;
@@ -11,10 +12,10 @@ interface ModalDangerProps {
 const ModalDanger: React.FC<ModalDangerProps> = (props: ModalDangerProps) => {
   const { t } = useTranslation();
   return (
-    <div>
+    <div className="modal-box">
       <Card
         title={
-          <span style={{ color: "red" }}>
+          <span className="modal-danger">
             <ExclamationCircleOutlined style={{ marginRight: 8 }} />
             {props.title}
           </span>
@@ -23,14 +24,14 @@ const ModalDanger: React.FC<ModalDangerProps> = (props: ModalDangerProps) => {
         className="danger-modal"
         onClick={(e) => e.stopPropagation()}
       >
-        <p>{props.content}</p>
-        <div style={{ textAlign: "right" }}>
-          <Button onClick={props.onCancel} style={{ marginRight: 8 }}>
+        <p className="modal-content">{props.content}</p>
+        <div className="modal-button">
+          <ButtonCustom onClick={props.onCancel} style={{ marginRight: 8 }}>
             {t("CANCEL")}
-          </Button>
-          <Button type="primary" danger onClick={props.onConfirm}>
+          </ButtonCustom>
+          <ButtonCustom type="primary" danger onClick={props.onConfirm}>
             {t("CONFIRM")}
-          </Button>
+          </ButtonCustom>
         </div>
       </Card>
       <style>{`

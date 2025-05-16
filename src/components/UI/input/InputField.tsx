@@ -19,7 +19,8 @@ interface InputFieldProps {
   readonly?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   label?: string;
-  rules?: RuleProps[]; // Allow multiple rules
+  rules?: RuleProps[];
+  required?: boolean;
 }
 
 const validate = (
@@ -77,6 +78,7 @@ const InputField = (props: InputFieldProps) => {
         onChange={handleChange}
         className={`${InputComponent === AntdInput.Password ? classes.inputPass : ""} ${error && classes.errorInput}`}
         aria-invalid={!!error}
+        required={props.required}
       />
       <span className={classes.errorMessage}>{error}</span>
     </div>

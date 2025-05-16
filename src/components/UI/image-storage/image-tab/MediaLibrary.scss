@@ -1,0 +1,32 @@
+@use "../../../../scss/abstracts/index" as *;
+.library-bg {
+  background-color: var(--bg);
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.images-box {
+  height: 200px;
+  .ant-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-content {
+    max-height: 152px;
+  }
+}
+.ant-pagination {
+  background-color: var(--bg);
+  padding-right: 10px;
+}
+.image-detail-box {
+  height: 100%;
+  .image-preview {
+    display: flex;
+    justify-content: center;
+    img {
+      width: auto;
+      height: 200px;
+    }
+  }
+}

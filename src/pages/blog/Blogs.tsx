@@ -1,18 +1,18 @@
+import { toast } from "react-toastify";
 import Column from "antd/es/table/Column";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import UseAction from "../../components/UI/UseAction";
-import { TableCustom } from "../../components/UI/TableCustom";
-import { IPaginationMeta } from "../../interfaces/IPagination";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../../store/ModalContext";
+import UseAction from "../../components/UI/UseAction";
+import ListTag from "../../components/UI/tag/ListTag";
 import ModalDanger from "../../components/modal/ModalDanger";
-import { toast } from "react-toastify";
+import { IPaginationMeta } from "../../interfaces/IPagination";
+import { TableCustom } from "../../components/UI/table/TableCustom";
+import { blogStatusEnums } from "../../constants/enums/blogStatusEnums";
 import { GetAllBlogResponseItem } from "../../constants/management/blog/GetAllBlogRequest";
 import GetAllBlogHandler from "../../components/api/management/blog/GetAllBlogHandler";
 import DeleteBlogHandler from "../../components/api/management/blog/DeleteBlogHandler";
-import ListTag from "../../components/UI/tag/ListTag";
-import { useNavigate } from "react-router-dom";
-import { blogStatusEnums } from "../../constants/enums/blogStatusEnums";
 
 function Blogs() {
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ function Blogs() {
   const handlerDelete = async (id: string) => {
     try {
       await DeleteBlogHandler({ id: id });
-      toast.success(t("CATEGORY_DELETE_SUCCESS"));
+      toast.success(t("DELETE_SUCCESS", { name: "Post" }));
       closeModal();
       fetchData(pagination);
     } catch (error) {
@@ -135,16 +135,18 @@ function Blogs() {
               <UseAction
                 showEdit
                 showDelete
-                onEdit={() => navigate(`/edit-blog/${record.id}`)}
+                onEdit={() => navigate(`/blogs/${record.id}`)}
                 onDelete={() =>
-                  openModal(
-                    <ModalDanger
-                      title={t("BLOG_DELETE_TITLE")}
-                      content={t("BLOG_DELETE_CONTENT")}
-                      onCancel={closeModal}
-                      onConfirm={() => handlerDelete(record.id)}
-                    />
-                  )
+                  openModal({
+                    content: (
+                      <ModalDanger
+                        title={t("BLOG_DELETE_TITLE")}
+                        content={t("BLOG_DELETE_CONTENT")}
+                        onCancel={closeModal}
+                        onConfirm={() => handlerDelete(record.id)}
+                      />
+                    ),
+                  })
                 }
               />
             )

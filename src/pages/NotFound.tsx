@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Button from "../components/UI/button/Button";
 import { useTranslation } from "react-i18next";
 import langContextObj from "../store/langContext";
+import ButtonCustom from "../components/UI/button/ButtonCustom";
 
 function NotFound() {
   const { t } = useTranslation();
@@ -21,7 +21,7 @@ function NotFound() {
         {t("notFoundMsg")}
       </h2>
       <Link to="/">
-        <Button>{t("backToHome")}</Button>
+        <ButtonCustom>{t("backToHome")}</ButtonCustom>
       </Link>
       <div className="notFound__img">
         <img

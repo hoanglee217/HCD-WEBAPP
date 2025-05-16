@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import UseAction from "../../components/UI/UseAction";
 import { useDrawer } from "../../store/DrawerContext";
-import { TableCustom } from "../../components/UI/TableCustom";
+import { TableCustom } from "../../components/UI/table/TableCustom";
 import { IPaginationMeta } from "../../interfaces/IPagination";
 import GetAllCategoryHandler from "../../components/api/management/category/GetAllCategoryHandler";
 import { GetAllCategoryResponseItem } from "../../constants/management/category/GetAllCategoryRequest";
@@ -52,7 +52,7 @@ function Categories() {
   const handlerDelete = async (id: string) => {
     try {
       await DeleteCategoryHandler({ id: id });
-      toast.success(t("CATEGORY_DELETE_SUCCESS"));
+      toast.success(t("DELETE_SUCCESS", { name: "Category" }));
       closeModal();
       fetchData(pagination);
     } catch (error) {
@@ -116,16 +116,18 @@ function Categories() {
                   )
                 }
                 onDelete={() =>
-                  openModal(
-                    <ModalDanger
-                      title={t("CATEGORY_DELETE_TITLE")}
-                      content={t("CATEGORY_DELETE_CONTENT", {
-                        name: record.name,
-                      })}
-                      onCancel={closeModal}
-                      onConfirm={() => handlerDelete(record.id)}
-                    />
-                  )
+                  openModal({
+                    content: (
+                      <ModalDanger
+                        title={t("CATEGORY_DELETE_TITLE")}
+                        content={t("CATEGORY_DELETE_CONTENT", {
+                          name: record.name,
+                        })}
+                        onCancel={closeModal}
+                        onConfirm={() => handlerDelete(record.id)}
+                      />
+                    ),
+                  })
                 }
               />
             )

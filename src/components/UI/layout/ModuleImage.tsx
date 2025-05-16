@@ -1,7 +1,8 @@
-import { Card, Flex, FormInstance } from "antd";
+import { Flex, FormInstance } from "antd";
 import { useTranslation } from "react-i18next";
-import TextCustom from "../TextCustom";
+import TextCustom from "../text-custom/TextCustom";
 import CardCustom from "../card/CardCustom";
+import ImageStorage from "../image-storage/ImageStorage";
 
 interface ModuleSaveProps {
   form: FormInstance;
@@ -15,7 +16,7 @@ const ModuleImage = ({ form, image }: ModuleSaveProps) => {
     <CardCustom
       size="small"
       title={t("FEATURED_IMAGE")}
-      styled={{ width: 280, border: "1px solid #dadada" }}
+      styled={{ width: 280 }}
     >
       <Flex vertical gap={12}>
         <img src={image} alt="" width="100%" />
@@ -27,9 +28,7 @@ const ModuleImage = ({ form, image }: ModuleSaveProps) => {
             <TextCustom isDeleteLink>{t("REMOVE_FEATURED_IMAGE")}</TextCustom>
           </>
         ) : (
-          <TextCustom isLink>
-            {t("SET_FEATURED_IMAGE")}
-          </TextCustom>
+          <ImageStorage type="link" title={t("SET_FEATURED_IMAGE")} />
         )}
       </Flex>
     </CardCustom>

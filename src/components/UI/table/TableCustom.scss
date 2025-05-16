@@ -1,0 +1,71 @@
+@use "../../../scss/abstracts/index" as *;
+
+.custom-table {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--bgc);
+  box-shadow: var(--drop-shadow);
+
+  .ant-table {
+    background: var(--bgc) !important;
+    color: var(--text-color) !important;
+    .ant-table-content {
+      margin: 0 30px;
+      border-radius: 10px;
+      box-shadow: var(--drop-shadow);
+      .ant-table-thead {
+        & >tr>th{
+          border-bottom: 1px solid var(--border-color);
+        }
+      }
+      .ant-table-tbody {
+        .even-row {
+          background: var(--table-even-row-bg);
+        }
+        .odd-row {
+          background: var(--table-odd-row-bg);
+        }
+        .ant-table-cell-row-hover {
+          background-color: #0000003f !important;
+        }
+      }
+    }
+    .ant-table-footer {
+      background: var(--bgc) !important;
+      color: var(--text-color) !important;
+      .ant-pagination,
+      .anticon {
+        color: var(--text-color) !important;
+      }
+      .ant-pagination-item-active {
+        background: var(--primaryColor) !important;
+        border: none;
+        a {
+          color: var(--text-color) !important;
+        }
+      }
+      .ant-pagination-item {
+        background-color: var(--table-odd-row-bg);
+        border: none;
+        a {
+          color: var(--text-color);
+        }
+      }
+      .ant-select-selector {
+        background-color: var(--table-odd-row-bg);
+        border: none;
+        color: var(--text-color);
+      }
+    }
+    thead th {
+      background: var(--primaryColor) !important;
+    }
+    td {
+      border: none !important;
+    }
+
+    .ant-table-row-expand-icon {
+      background: var(--bgc) !important;
+    }
+  }
+}

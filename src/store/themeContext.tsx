@@ -1,18 +1,19 @@
+import { MenuTheme } from "antd";
 import React, { useEffect } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
 type themeType = {
-  theme: string;
+  theme: MenuTheme;
   toggleTheme: () => void;
 };
 
 const ThemeContext = React.createContext<themeType>({
-  theme: "",
+  theme: "light",
   toggleTheme: () => {},
 });
 
 export const ThemeContextProvider: React.FC = (props) => {
-  const [theme, setTheme] = useLocalStorage("theme", "light");
+  const [theme, setTheme] = useLocalStorage<MenuTheme>("theme", "light");
 
   useEffect(() => {
     document.documentElement.setAttribute("theme", theme);

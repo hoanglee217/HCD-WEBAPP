@@ -9,12 +9,13 @@ import MainLayout from "./layout/MainLayout";
 import ProtectedRoute from "./route/ProtectedRoute";
 import UnauthorizedRoute from "./route/UnauthorizedRoute";
 import AuthLayout from "./components/authentication/AuthLayout";
-import LoadingSpinner from "./components/UI/loadingSpinner/LoadingSpinner";
+import LoadingSpinner from "./components/UI/loading-spinner/LoadingSpinner";
 // import CategoryEdit from "./pages/category/CategoryEdit";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Categories = React.lazy(() => import("./pages/category/Categories"));
 const Blogs = React.lazy(() => import("./pages/blog/Blogs"));
+const Tags = React.lazy(() => import("./pages/tag/Tags"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const BlankPage = React.lazy(() => import("./pages/BlankPage"));
 const Login = React.lazy(() => import("./pages/Login"));
@@ -33,13 +34,13 @@ function App() {
                 <Route index element={<Dashboard />} />
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/blogs" element={<Blogs />} />
-                <Route path="/add-blog" element={<BlogForm />} />
                 <Route
-                  path="/edit-blog/:id"
-                  element={<BlogForm isUpdate/>}
+                  path="/blogs/:id"
+                  element={<BlogForm key="edit" isUpdate />}
                 />
+                <Route path="/add-blog" element={<BlogForm key="add" />} />
                 <Route path="/comment" element={<BlankPage />} />
-                <Route path="/tags" element={<BlankPage />} />
+                <Route path="/tags" element={<Tags />} />
               </Route>
             </Route>
             <Route element={<UnauthorizedRoute />}>

@@ -4,6 +4,6 @@ export interface GetDetailTagRequest {
 }
 export interface GetDetailTagResponse {
     id: string;
-    title: string;
+    name: string;
 }
   

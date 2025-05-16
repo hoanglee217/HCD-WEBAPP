@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import ButtonCustom from "../../components/UI/button/ButtonCustom";
 
 interface SortableItemProps {
   id: string;
@@ -18,7 +19,7 @@ function SortableItem({ id, children }: SortableItemProps) {
   return (
     <li ref={setNodeRef} style={style}>
       {children}
-      <button {...listeners} {...attributes}>Drag handle</button>
+      <ButtonCustom {...listeners} {...attributes}>Drag handle</ButtonCustom>
     </li>
   );
 }

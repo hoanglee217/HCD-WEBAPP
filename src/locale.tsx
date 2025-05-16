@@ -114,6 +114,7 @@ i18n
           CANCEL: "Cancel",
           UPLOAD: "Upload",
           CONFIRM: "Confirm",
+          UPDATE: "Update",
           //end action
 
           //common column
@@ -126,8 +127,13 @@ i18n
           //end common column
 
           //common alert
-          UPDATE_SUCCESS: "Update Successfully",
+          CREATE_SUCCESS: "Create {{name}} Successfully",
+          CREATE_FAIL: "Create {{name}} Fail",
+          UPDATE_SUCCESS: "Update {{name}} Successfully",
+          UPDATE_FAIL: "Update {{name}} Fail",
           SEARCH_PLACEHOLDER: "Search here...",
+          DELETE_SUCCESS: "Delete {{name}} Successfully",
+          DELETE_FAIL: "Delete {{name}} Fail",
           //end common alert
 
           //table
@@ -160,25 +166,28 @@ i18n
           CATEGORY_CREATE_FAIL: "Add Category failed",
           //end Category
 
-          //blog
-          BLOG: "Blog",
-          BLOGS: "Blogs",
+          //post
+          BLOG: "Post",
+          BLOGS: "Posts",
 
-          BLOG_SUB_TITLE: "List of blogs",
-          BLOG_UPDATE: "Blog Update",
-          BLOG_CREATE: "Blog Create",
-          BLOG_TITLE: "Blog Title",
-          BLOG_SLUG: "Blog Slug",
-          BLOG_CATEGORY: "Blog Category",
-          BLOG_CONTENT: "Blog Content",
+          BLOG_ALL: "All post",
+          BLOG_SUB_TITLE: "List of posts",
+          BLOG_UPDATE: "Post Update",
+          BLOG_CREATE: "Post Create",
+          BLOG_TITLE: "Post Title",
+          BLOG_SLUG: "Post Slug",
+          BLOG_CATEGORY: "Post Category",
+          BLOG_CONTENT: "Post Content",
 
           ADD_BLOG_HEADER: "Add new post",
           ADD_BLOG_TITLE_PLACEHOLDER: "Add title",
           ADD_BLOG_TAG_PLACEHOLDER: "Add Tag",
 
+          EDIT_BLOG_HEADER: "Edit post",
+
           BLOG_DELETE_TITLE: "Delete post",
           BLOG_DELETE_CONTENT: "Are you sure you want to delete this post?",
-          //end blog
+          //end post
 
           //comment
           COMMENT: "Comment",
@@ -189,6 +198,7 @@ i18n
           TAG: "Tag",
           TAGS: "Tags",
           TAG_ADD_NOTE: "Separate tags with commas",
+          TAG_SUB_TITLE: "List of tag",
           //end tag
 
           //image
@@ -196,7 +206,15 @@ i18n
           FEATURED_IMAGE_DESCRIPTION: "Click the image to edit or update",
           SET_FEATURED_IMAGE: "Set featured image",
           REMOVE_FEATURED_IMAGE: "Remove featured image",
+
+          UPLOAD_FILE: "Upload files",
+          MEDIA_LIBRARY: "Media library",
           //end image
+
+          //setting
+          SETTING: "Setting",
+          SETTINGs: "Settings",
+          //end setting
         },
       },
       vi: {
@@ -304,6 +322,7 @@ i18n
           CANCEL: "Hủy",
           UPLOAD: "Tải lên",
           CONFIRM: "Xác nhận",
+          UPDATE: "Cập nhật",
           //end action
 
           //common column
@@ -316,8 +335,13 @@ i18n
           //end common column
 
           //common alert
-          UPDATE_SUCCESS: "Cập nhật thành công",
+          CREATE_SUCCESS: "Thêm {{name}} thành công",
+          CREATE_FAIL: "Thêm {{name}} thất bại",
+          UPDATE_SUCCESS: "Cập nhật {{name}} thành công",
+          UPDATE_FAIL: "Cập nhật {{name}} thất bại",
           SEARCH_PLACEHOLDER: "Tìm kiếm...",
+          DELETE_SUCCESS: "Xoá {{name}} thành công",
+          DELETE_FAIL: "Xoá {{name}} thất bại",
           //end common alert
 
           //table
@@ -350,13 +374,14 @@ i18n
           CATEGORY_CREATE_FAIL: "Thêm mới danh mục không thành công:",
           //end Category
 
-          //blog
+          //post
           BLOG: "Bài viết",
           BLOGS: "Bài viết",
 
+          BLOG_ALL: "Tất cả bài viết",
           BLOG_SUB_TITLE: "Danh sách bài viết",
           BLOG_UPDATE: "Cập nhật bài viết",
-          BLOG_CREATE: "Tạo bài viết",
+          BLOG_CREATE: "Thêm bài viết",
           BLOG_TITLE: "Tiêu đề bài viết",
           BLOG_SLUG: "Đường dẫn bài viết",
           BLOG_CATEGORY: "Danh mục bài viết",
@@ -366,9 +391,11 @@ i18n
           ADD_BLOG_TITLE_PLACEHOLDER: "Thêm tiêu đề",
           ADD_BLOG_TAG_PLACEHOLDER: "Thêm thẻ",
 
+          EDIT_BLOG_HEADER: "Chỉnh sửa bài viết",
+
           BLOG_DELETE_TITLE: "Xoá bài viết",
           BLOG_DELETE_CONTENT: "Bạn chắc chắn muốn xoá bài viết này chứ?",
-          //end blog
+          //end post
 
           //comment
           COMMENT: "Bình luận",
@@ -379,6 +406,7 @@ i18n
           TAG: "Thẻ",
           TAGS: "Thẻ",
           TAG_ADD_NOTE: "Tách các thẻ bằng dấu phẩy",
+          TAG_SUB_TITLE: "Danh sách thẻ",
           //end tag
 
           //image
@@ -387,7 +415,15 @@ i18n
             "Nhấp vào hình ảnh để chỉnh sửa hoặc cập nhật",
           SET_FEATURED_IMAGE: "Đặt hình ảnh nổi bật",
           REMOVE_FEATURED_IMAGE: "Xóa hình ảnh nổi bật",
+
+          UPLOAD_FILE: "Tải tệp lên",
+          MEDIA_LIBRARY: "Thư viện ảnh",
           //end image
+
+          //setting
+          SETTING: "Cài đặt",
+          SETTINGs: "Cài đặt",
+          //end setting
         },
       },
     },

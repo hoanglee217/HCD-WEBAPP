@@ -1,17 +1,27 @@
 @use "../../../scss/abstracts/index" as *;
 
 .button {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
   border-radius: 8px;
   transition: all 0.3s;
 }
 
 /* Solid Variants */
+.default {
+  background: var(--bgc);
+  border-color: var(--border-color);
+  color: var(--text-color);
+
+  &:hover {
+    background: #40a9ff;
+    border-color: #40a9ff;
+  }
+}
 .primary {
-  background: #1890ff;
-  border-color: #1890ff;
-  color: #fff;
+  // background: #1890ff;
+  background: var(--primaryColor);
+  border-color: var(--primaryColor);
+  color: var(--buttonColor1) !important;
 
   &:hover {
     background: #40a9ff;
@@ -22,7 +32,7 @@
 .danger {
   background: #ff4d4f;
   border-color: #ff4d4f;
-  color: white;
+  color: #fff;
 
   &:hover {
     background: #ff7875;
@@ -42,6 +52,17 @@
 }
 
 /* Outline Variants */
+.outline {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+
+  &:hover {
+    color: #fff !important;
+    background: var(--border-color) !important;
+  }
+}
+
 .outline-primary {
   background: transparent;
   border: 1px solid #1890ff;
@@ -76,6 +97,17 @@
 }
 
 /* Ghost Variants */
+.ghost {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+
+  &:hover {
+    color: var(--text-color) !important;
+    background: var(--border-color) !important;
+  }
+}
+
 .ghost-primary {
   background: transparent;
   border: none;

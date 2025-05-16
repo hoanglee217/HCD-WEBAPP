@@ -1,6 +1,6 @@
 import React from "react";
-import { Tag, Tooltip } from "antd";
-import TextCustom from "../TextCustom";
+import { Flex, Tag } from "antd";
+import TextCustom from "../text-custom/TextCustom";
 
 type TagItem = {
   key: string;
@@ -24,19 +24,18 @@ type ListTagProps = {
     | "green"
     | "cyan"
     | "blue"
-    | "geekblue"
     | "purple";
 };
 
 const ListTag: React.FC<ListTagProps> = ({ data, color }) => {
   return (
-    <div>
+    <Flex wrap gap={8}>
       {data.map((tag) => (
         <Tag key={tag.key} color={color || "default"}>
           <TextCustom data={tag.label} ellipsis tooltip width={"100px"}/>
         </Tag>
       ))}
-    </div>
+    </Flex>
   );
 };
 

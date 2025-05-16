@@ -1,22 +1,31 @@
 import React, { createContext, useContext, useState } from "react";
 import { Modal } from "antd";
 
+interface OpenModalProps {
+  content?: React.ReactNode;
+  width?: string | number;
+  height?: string | number;
+}
 interface ModalContextProps {
   isOpen: boolean;
-  openModal: (content?: React.ReactNode) => void;
+  openModal: ({ content, width, height }: OpenModalProps) => void;
   closeModal: () => void;
   modalContent: React.ReactNode;
 }
 
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
 
-export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const ModalProvider: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState<React.ReactNode>(null);
+  const [modalWidth, setModalWidth] = useState<string | number>();
+  const [modalHeight, setModalHeight] = useState<string | number>();
 
-  const openModal = (content?: React.ReactNode) => {
+  const openModal = ({ content, width, height }: OpenModalProps) => {
+    setModalWidth(width);
+    setModalHeight(height);
     setModalContent(content);
     setIsOpen(true);
   };
@@ -34,7 +43,8 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
       <Modal
         open={isOpen}
         onCancel={closeModal}
-        width={400}
+        width={modalWidth ? modalWidth : "400px"}
+        height={modalHeight ? modalHeight : "max-content"}
         footer={null}
         style={{ padding: 0 }}
         centered

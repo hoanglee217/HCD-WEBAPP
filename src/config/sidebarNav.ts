@@ -16,6 +16,14 @@ const sidebarNav = [
     section: "blogs",
     icon: "mdi:post-it-note-text-outline",
     text: "BLOGS",
+    children: 
+    [
+      {
+        link: "/add-blog",
+        section: "addBlog",
+        text: "BLOG_CREATE",
+      },
+    ]
   },
   {
     link: "/comments",
@@ -28,6 +36,12 @@ const sidebarNav = [
     section: "tags",
     icon: "mdi:tag-outline",
     text: "TAGS",
+  },
+  {
+    link: "/settings",
+    section: "settings",
+    icon: "uil:setting",
+    text: "SETTING",
   },
 ];
 

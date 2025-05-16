@@ -10,33 +10,55 @@
     flex-direction: column;
     min-height: 500px;
     position: relative;
-    border: 1px solid #ccced1;
+    border: 1px solid var(--border-color);
+    .editor-menu-bar {
+      .ck-menu-bar {
+        background: var(--bgc);
+      }
+    }
     .editor-toolbar {
       .ck-toolbar {
-        border: none;
+        border: none !important;
+        border-radius: 0 !important;
+        // background: var(--bgc);
+        // .ck-toolbar__items {
+        //   .ck-icon,
+        //   .ck-button__label {
+        //     color: var(--text-head-color) !important;
+        //   }
+        // }
+        // .ck-dropdown__panel .ck-list{
+        //   background: var(--bgc) !important;
+        // }
       }
     }
     .editor-content {
-      border-top: 1px solid #ccced1;
+      border-top: 1px solid var(--border-color);
 
       .ck-content {
         height: 480px;
-        margin: 10px 20px 30px;
-        border: 1px solid #f6f7f7;
-        box-shadow: var(--drop-shadow);
+        margin: 0px 20px 30px;
+        border: none !important;
+        color: var(--text-color);
+      }
+      .ck-content:hover {
+        border: none !important;
+      }
+      .ck-focused {
+        border: none !important;
+        box-shadow: none !important;
       }
     }
-    .ck-word-count {
-      color: #333;
-      display: flex;
-      gap: 12px;
-      justify-content: flex-end;
-      font-size: 13px;
-      padding: 8px;
-    }
-
     .editor-word-count {
-      border-top: 1px solid var(--ck-color-base-border);
+      border-top: 1px solid var(--border-color);
+      .ck-word-count {
+        color: var(--text-color);
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        font-size: 13px;
+        padding: 8px;
+      }
     }
   }
 
@@ -44,7 +66,7 @@
     width: 100%;
     height: 500px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     resize: none;
     border-radius: 0;
   }

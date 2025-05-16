@@ -1,0 +1,13 @@
+@use "../../scss/abstracts/index" as *;
+
+.modal-box{
+    .modal-danger{
+        color: red;
+    }
+    .modal-content{
+        margin-bottom: 24px;
+    }
+    .modal-button{
+        text-align: right;
+    }
+}

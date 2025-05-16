@@ -1,7 +1,7 @@
 const images = {
   logoLight: require("../assets/images/hoangcodedao-logo-long-white.png"),
   logoDark: require("../assets/images/hoangcodedao-logo-long-black.png"),
-  logo: require("../assets/images/digikalaLogo.png"),
+  logo: require("../assets/images/hoangcodedao-logo.png"),
   avt: require("../assets/images/avatar.jpg"),
   logKey: require("../assets/images/Reset password-pana.svg"),
   dashboard: require("../assets/images/Revenue-cuate.svg"),
