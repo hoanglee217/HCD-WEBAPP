@@ -10,7 +10,6 @@ A web application built with React and TypeScript.
 *   React
 *   TypeScript
 *   Node.js
-*   [List any other major libraries or frameworks]
 
 ## Getting Started
 
